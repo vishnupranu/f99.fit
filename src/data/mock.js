@@ -74,6 +74,52 @@ export const coachSuggestions = [
   "What should I eat today?",
 ]
 
+// Member fitness profile — tracks progress, goals & history
+export const profile = {
+  age: 28,
+  height: 178,           // cm
+  currentWeight: 76.2,   // kg
+  startWeight: 82.0,     // kg
+  goalWeight: 72.0,      // kg
+  goalType: 'Build muscle · Lose fat',
+  goalDeadline: 'Dec 2026',
+  bodyFat: 18.4,         // %
+  muscleMass: 34.2,      // kg
+  bmi: 24.0,
+}
+
+export const weightHistory = [
+  { date: 'Aug 03', weight: 82.0 },
+  { date: 'Aug 10', weight: 81.2 },
+  { date: 'Aug 17', weight: 80.4 },
+  { date: 'Aug 24', weight: 79.1 },
+  { date: 'Aug 31', weight: 77.8 },
+  { date: 'Sep 07', weight: 76.9 },
+  { date: 'Sep 14', weight: 76.2 },
+]
+
+export const measurements = [
+  { part: 'Chest', value: 102 },
+  { part: 'Waist', value: 86 },
+  { part: 'Arms', value: 37 },
+  { part: 'Thighs', value: 58 },
+]
+
+export const goalProgress = [
+  { label: 'Weight goal', current: 76.2, target: 72.0, start: 82.0, unit: 'kg' },
+  { label: 'Workouts / week', current: 5, target: 6, unit: '' },
+  { label: 'Daily steps', current: 7840, target: 10000, unit: '' },
+  { label: 'Body fat', current: 18.4, target: 15, start: 22, unit: '%' },
+]
+
+export const activityHistory = [
+  { date: 'Sep 14', title: 'Push Day — Strength', dur: '52 min', kcal: 480, type: 'Strength' },
+  { date: 'Sep 13', title: 'Evening Run', dur: '35 min', kcal: 320, type: 'Cardio' },
+  { date: 'Sep 12', title: 'Mobility Flow', dur: '20 min', kcal: 120, type: 'Recovery' },
+  { date: 'Sep 11', title: 'Leg Day', dur: '60 min', kcal: 620, type: 'Strength' },
+  { date: 'Sep 10', title: 'HIIT Inferno', dur: '28 min', kcal: 360, type: 'Cardio' },
+]
+
 export const coachChat = [
   { from: 'ai', text: "Hey Arjun! 👋 I'm your AI Coach. I've analysed your last 7 days — your strength is up 8% but sleep recovery dipped midweek. Want me to adjust today's session?" },
   { from: 'me', text: "Yeah, make today a bit lighter." },

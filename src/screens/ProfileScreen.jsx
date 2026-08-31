@@ -1,8 +1,12 @@
-import { ChevronRight, Crown, Settings, Heart, CreditCard, Target, Shield, Bell, HelpCircle, LogOut, Award, Footprints, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronRight, Crown, Settings, Heart, CreditCard, Target, Shield, Bell, HelpCircle, LogOut, Award, Footprints, Zap, TrendingUp } from 'lucide-react'
 import { user, stats } from '../data/mock'
+import ProgressScreen from './ProgressScreen'
 
 export default function ProfileScreen() {
+  const [view, setView] = useState('profile')
   const menu = [
+    { t: 'My Progress', sub: 'Weight, goals & activity history', icon: TrendingUp, color: '#C6F432', action: () => setView('progress') },
     { t: 'My Membership', sub: 'Ryze Elite · Renews Jan 2027', icon: Crown, color: '#FFB23E' },
     { t: 'Payment Methods', sub: '1 card · UPI linked', icon: CreditCard, color: '#C6F432' },
     { t: 'Fitness Goals', sub: 'Build muscle · Lose fat', icon: Target, color: '#FF5A6E' },
@@ -11,6 +15,7 @@ export default function ProfileScreen() {
     { t: 'Help & Support', sub: 'FAQs · Contact us', icon: HelpCircle, color: '#9A9CA8' },
     { t: 'Settings', sub: 'Account & preferences', icon: Settings, color: '#9A9CA8' },
   ]
+  if (view === 'progress') return <ProgressScreen onBack={() => setView('profile')} />
   return (
     <div className="screen fade-in">
       <div className="topbar">
@@ -67,11 +72,11 @@ export default function ProfileScreen() {
         {menu.map((m, i) => {
           const Icon = m.icon
           return (
-            <div className="menu-item" key={i} style={{ borderBottom: i < menu.length - 1 ? '1px solid var(--border)' : 'none' }}>
+            <button className="menu-item" key={i} style={{ width: '100%', borderBottom: i < menu.length - 1 ? '1px solid var(--border)' : 'none' }} onClick={m.action}>
               <div className="ic" style={{ color: m.color, background: 'var(--surface-2)' }}><Icon size={19} /></div>
               <div className="t">{m.t}<div className="sub">{m.sub}</div></div>
               <ChevronRight size={18} color="var(--text-dim)" />
-            </div>
+            </button>
           )
         })}
       </div>
